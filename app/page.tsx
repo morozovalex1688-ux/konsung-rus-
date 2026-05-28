@@ -179,7 +179,7 @@ export default function KonsungRus() {
       {/* Hero - strong gradient background + gmate-style layout */}
       <section className="bg-gradient-hero text-white pt-24 pb-12 sm:pt-16 sm:pb-20">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 md:px-8 grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-          <div>
+          <div className="-mt-5 sm:mt-0">
             <h1 className="text-[34px] leading-[1.05] sm:text-5xl md:text-[56px] font-semibold tracking-tighter mb-3 sm:mb-6">
               <span className="flowing-gradient block">{siteTexts.hero.titleLine1}</span>
               <span className="flowing-gradient block">{siteTexts.hero.titleLine2}</span>
