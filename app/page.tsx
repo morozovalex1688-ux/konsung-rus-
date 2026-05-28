@@ -152,10 +152,10 @@ export default function KonsungRus() {
       <section className="bg-gradient-hero text-white pt-16 pb-20">
         <div className="max-w-7xl mx-auto px-8 grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <h1 className="text-5xl md:text-[56px] font-semibold tracking-tighter leading-[1.0] mb-6">
+            <h1 className="text-5xl md:text-[56px] font-semibold tracking-tighter leading-[1.05] mb-6">
               <span className="flowing-gradient block">{siteTexts.hero.titleLine1}</span>
-              <span className="flowing-gradient block whitespace-nowrap">{siteTexts.hero.titleLine2}</span>
-              <span className="flowing-gradient block mt-1 md:mt-2">{siteTexts.hero.titleLine3}</span>
+              <span className="flowing-gradient block">{siteTexts.hero.titleLine2}</span>
+              <span className="flowing-gradient block mt-1 md:mt-1.5">{siteTexts.hero.titleLine3}</span>
             </h1>
             <p className="text-xl text-white/90 mb-8 max-w-md">
               {siteTexts.hero.subtitle}
@@ -467,7 +467,7 @@ export default function KonsungRus() {
           {[
             { Icon: Truck, title: "Прямые поставки", desc: "Эксклюзивный импорт напрямую от производителя Sejoy без посредников" },
             { Icon: ClipboardCheck, title: "Полная регистрация", desc: "Все изделия зарегистрированы в Росздравнадзоре, готовы к продаже в аптеках и участия в тендерах" },
-            { Icon: TrendingDown, title: "Выгодные цены", desc: "Конкурентные оптовые цены и гибкая система скидок до 20% в зависимости от объёма" },
+            { Icon: TrendingDown, title: "Выгодные цены", desc: "Конкурентные оптовые цены и гибкая система скидок до 30% в зависимости от объёма" },
             { Icon: PackageCheck, title: "Стабильные поставки", desc: "Постоянный складской запас в Санкт-Петербурге и гарантированные сроки отгрузки" },
             { Icon: Megaphone, title: "Маркетинговая поддержка", desc: "Бесплатные POS-материалы, презентации, обучающие видео и помощь в продвижении" },
             { Icon: Handshake, title: "Персональный сервис", desc: "Закреплённый менеджер, приоритетная обработка заказов и помощь в тендерах" },
