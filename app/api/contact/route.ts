@@ -69,6 +69,15 @@ export async function POST(request: NextRequest) {
       </div>
     `;
 
+    // === Настройка получателя и отправителя ===
+    // Получатель заявок (основной email компании)
+    const TO_EMAIL = process.env.CONTACT_EMAIL || 'info@konsungrus.ru';
+
+    // Отправитель письма (From)
+    // Рекомендуется использовать подтверждённый домен после настройки в Resend.
+    // Пример: 'Сайт Консунг Рус <info@konsungrus.ru>'
+    const FROM_EMAIL = process.env.FROM_EMAIL || 'Сайт Консунг Рус <info@konsungrus.ru>';
+
     // Отправляем через Resend
     const resendResponse = await fetch('https://api.resend.com/emails', {
       method: 'POST',
@@ -77,8 +86,8 @@ export async function POST(request: NextRequest) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: 'Сайт Консунг Рус <onboarding@resend.dev>', // Можно поменять после настройки домена
-        to: ['info@konsungrus.ru'],
+        from: FROM_EMAIL,
+        to: [TO_EMAIL],
         subject: `Новая заявка от ${name} (${company || 'без компании'})`,
         html: emailHtml,
         reply_to: email,
