@@ -146,60 +146,38 @@ export default function KonsungRus() {
             Связаться с нами
           </button>
         </div>
+
+        {/* Mobile Quick Access Menu inside Header */}
+        <div className="md:hidden border-t bg-white/95">
+          <div className="overflow-x-auto no-scrollbar px-4 py-2.5">
+            <div className="flex gap-2 text-xs font-medium whitespace-nowrap">
+              <a href="#system" className="px-3 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 active:bg-[#013CC6] active:text-white transition-colors text-slate-700">
+                Продукты
+              </a>
+              <a href="#documents" className="px-3 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 active:bg-[#013CC6] active:text-white transition-colors text-slate-700">
+                Документы
+              </a>
+              <a href="#partners" className="px-3 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 active:bg-[#013CC6] active:text-white transition-colors text-slate-700">
+                Партнёры
+              </a>
+              <a href="tel:+78003331923" className="px-3 py-1.5 rounded-full bg-green-100 hover:bg-green-200 active:bg-green-600 active:text-white transition-colors text-green-700 font-medium">
+                Позвонить
+              </a>
+              <button 
+                onClick={openContactModal}
+                className="px-3 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 active:bg-[#013CC6] active:text-white transition-colors text-slate-700"
+              >
+                Написать
+              </button>
+            </div>
+          </div>
+        </div>
       </nav>
 
-      {/* Mobile Quick Access Bottom Menu - like on konsungrus.ru */}
-      <div className="md:hidden fixed bottom-0 left-0 right-0 z-[70] bg-white border-t shadow-[0_-2px_10px_rgba(0,0,0,0.08)] safe-area-bottom">
-        <div className="grid grid-cols-5 text-center text-[10px] font-medium">
-          {/* Продукты */}
-          <a 
-            href="#system" 
-            className="flex flex-col items-center justify-center py-2.5 active:bg-slate-50 transition-colors"
-          >
-            <Package size={18} className="mb-0.5 text-[#013CC6]" />
-            <span className="text-slate-600">Продукты</span>
-          </a>
 
-          {/* Документы */}
-          <a 
-            href="#documents" 
-            className="flex flex-col items-center justify-center py-2.5 active:bg-slate-50 transition-colors"
-          >
-            <FileText size={18} className="mb-0.5 text-[#013CC6]" />
-            <span className="text-slate-600">Документы</span>
-          </a>
-
-          {/* Дистрибьюторы */}
-          <a 
-            href="#partners" 
-            className="flex flex-col items-center justify-center py-2.5 active:bg-slate-50 transition-colors"
-          >
-            <Handshake size={18} className="mb-0.5 text-[#013CC6]" />
-            <span className="text-slate-600">Партнёры</span>
-          </a>
-
-          {/* Позвонить */}
-          <a 
-            href="tel:+78003331923" 
-            className="flex flex-col items-center justify-center py-2.5 active:bg-slate-50 transition-colors"
-          >
-            <Phone size={18} className="mb-0.5 text-green-600" />
-            <span className="text-green-600 font-semibold">Позвонить</span>
-          </a>
-
-          {/* Написать */}
-          <button 
-            onClick={openContactModal}
-            className="flex flex-col items-center justify-center py-2.5 active:bg-slate-50 transition-colors"
-          >
-            <MessageCircle size={18} className="mb-0.5 text-[#013CC6]" />
-            <span className="text-slate-600">Написать</span>
-          </button>
-        </div>
-      </div>
 
       {/* Hero - strong gradient background + gmate-style layout */}
-      <section className="bg-gradient-hero text-white pt-[108px] pb-16 sm:pt-16 sm:pb-20">
+      <section className="bg-gradient-hero text-white pt-[132px] pb-16 sm:pt-16 sm:pb-20">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 md:px-8 grid md:grid-cols-2 gap-8 md:gap-12 items-center">
           <div>
             <h1 className="text-[34px] leading-[1.05] sm:text-5xl md:text-[56px] font-semibold tracking-tighter mb-5 sm:mb-6">
@@ -651,7 +629,7 @@ export default function KonsungRus() {
 
       {/* Contact form + footer */}
       {/* Контакты */}
-      <section id="contacts" className="bg-white border-t pb-20 md:pb-0">
+      <section id="contacts" className="bg-white border-t">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 md:px-8 py-12 sm:py-16">
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Левая колонка — контакты и реквизиты */}
@@ -708,7 +686,7 @@ export default function KonsungRus() {
         </div>
       </section>
 
-      <footer className="border-t py-10 pb-24 md:pb-10 text-sm text-slate-500">
+      <footer className="border-t py-10 text-sm text-slate-500">
         <div className="max-w-7xl mx-auto px-8 grid md:grid-cols-2 gap-y-4">
           <div>
             © {new Date().getFullYear()} ООО «Консунг Рус». Все права защищены.<br />
