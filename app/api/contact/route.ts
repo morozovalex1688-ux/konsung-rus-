@@ -67,7 +67,7 @@ export async function POST(request: NextRequest) {
         ` : ''}
 
         <div style="margin-top: 30px; padding-top: 15px; border-top: 1px solid #eee; font-size: 12px; color: #888;">
-          Заявка отправлена с сайта <a href="https://konsungrus.ru" style="color: #013CC6;">konsungrus.ru</a><br>
+          Заявка поступила с сайта на глюкометры<br>
           Дата: ${new Date().toLocaleString('ru-RU')}
         </div>
 
@@ -89,7 +89,7 @@ export async function POST(request: NextRequest) {
 Email: ${email}
 ${message ? `\nСообщение:\n${message}\n` : ''}
 
-Заявка отправлена с сайта konsungrus.ru
+Заявка поступила с сайта на глюкометры
 Дата: ${new Date().toLocaleString('ru-RU')}
 
 ---
