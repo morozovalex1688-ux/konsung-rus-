@@ -177,15 +177,15 @@ export default function KonsungRus() {
 
 
       {/* Hero - strong gradient background + gmate-style layout */}
-      <section className="bg-gradient-hero text-white pt-[140px] pb-16 sm:pt-16 sm:pb-20">
+      <section className="bg-gradient-hero text-white pt-24 pb-12 sm:pt-16 sm:pb-20">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 md:px-8 grid md:grid-cols-2 gap-8 md:gap-12 items-center">
           <div>
-            <h1 className="text-[34px] leading-[1.05] sm:text-5xl md:text-[56px] font-semibold tracking-tighter mb-5 sm:mb-6">
+            <h1 className="text-[34px] leading-[1.05] sm:text-5xl md:text-[56px] font-semibold tracking-tighter mb-3 sm:mb-6">
               <span className="flowing-gradient block">{siteTexts.hero.titleLine1}</span>
               <span className="flowing-gradient block">{siteTexts.hero.titleLine2}</span>
               <span className="flowing-gradient block mt-0.5 sm:mt-1 md:mt-1.5">{siteTexts.hero.titleLine3}</span>
             </h1>
-            <p className="text-[15px] sm:text-lg md:text-xl text-white/90 mb-6 sm:mb-8 max-w-md">
+            <p className="text-[15px] sm:text-lg md:text-xl text-white/90 mb-4 sm:mb-8 max-w-md">
               {siteTexts.hero.subtitle}
             </p>
             <a href="#system" className="btn-gradient inline-flex items-center gap-3 px-6 sm:px-8 py-3 sm:py-4 rounded-2xl font-semibold text-base sm:text-lg">
