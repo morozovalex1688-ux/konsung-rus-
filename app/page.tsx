@@ -89,7 +89,7 @@ export default function KonsungRus() {
   return (
     <div className="min-h-screen bg-white font-sans text-slate-900">
       {/* Navbar - clean like gmate */}
-      <nav className="border-b bg-white md:sticky md:top-0 z-50">
+      <nav className="border-b bg-white sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 md:px-8 h-16 sm:h-20 flex items-center justify-between">
           <Link href="/" className="flex items-center hover:opacity-90 transition-opacity">
             <img src="/images/logo.webp" alt="Консунг Рус" className="h-11 sm:h-14 md:h-16" />
@@ -147,25 +147,25 @@ export default function KonsungRus() {
           </button>
         </div>
 
-        {/* Mobile Quick Access Menu inside Header */}
-        <div className="md:hidden border-t bg-white/95">
-          <div className="overflow-x-auto no-scrollbar px-4 py-2.5">
-            <div className="flex gap-2 text-xs font-medium whitespace-nowrap">
-              <a href="#system" className="px-3 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 active:bg-[#013CC6] active:text-white transition-colors text-slate-700">
+        {/* Mobile Quick Access Menu inside Header - always fixed */}
+        <div className="md:hidden border-t bg-white">
+          <div className="overflow-x-auto no-scrollbar px-4 py-2">
+            <div className="flex gap-1.5 text-[11px] font-medium whitespace-nowrap">
+              <a href="#system" className="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200 active:bg-[#013CC6] active:text-white transition-colors text-slate-700">
                 Продукты
               </a>
-              <a href="#documents" className="px-3 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 active:bg-[#013CC6] active:text-white transition-colors text-slate-700">
+              <a href="#documents" className="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200 active:bg-[#013CC6] active:text-white transition-colors text-slate-700">
                 Документы
               </a>
-              <a href="#partners" className="px-3 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 active:bg-[#013CC6] active:text-white transition-colors text-slate-700">
+              <a href="#partners" className="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200 active:bg-[#013CC6] active:text-white transition-colors text-slate-700">
                 Партнёры
               </a>
-              <a href="tel:+78003331923" className="px-3 py-1.5 rounded-full bg-green-100 hover:bg-green-200 active:bg-green-600 active:text-white transition-colors text-green-700 font-medium">
+              <a href="tel:+78003331923" className="px-3 py-1 rounded-full bg-green-100 hover:bg-green-200 active:bg-green-600 active:text-white transition-colors text-green-700 font-medium">
                 Позвонить
               </a>
               <button 
                 onClick={openContactModal}
-                className="px-3 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 active:bg-[#013CC6] active:text-white transition-colors text-slate-700"
+                className="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200 active:bg-[#013CC6] active:text-white transition-colors text-slate-700"
               >
                 Написать
               </button>
@@ -177,7 +177,7 @@ export default function KonsungRus() {
 
 
       {/* Hero - strong gradient background + gmate-style layout */}
-      <section className="bg-gradient-hero text-white pt-[132px] pb-16 sm:pt-16 sm:pb-20">
+      <section className="bg-gradient-hero text-white pt-[140px] pb-16 sm:pt-16 sm:pb-20">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 md:px-8 grid md:grid-cols-2 gap-8 md:gap-12 items-center">
           <div>
             <h1 className="text-[34px] leading-[1.05] sm:text-5xl md:text-[56px] font-semibold tracking-tighter mb-5 sm:mb-6">
