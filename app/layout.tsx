@@ -20,8 +20,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ru" className="h-full antialiased scroll-smooth">
-      <body className="min-h-full flex flex-col font-sans bg-white text-slate-900">
+    <html lang="ru" className="h-full antialiased scroll-smooth overflow-x-hidden">
+      <body className="min-h-full flex flex-col font-sans bg-white text-slate-900 overflow-x-hidden">
         {children}
 
         {/* Basic JSON-LD for Organization */}

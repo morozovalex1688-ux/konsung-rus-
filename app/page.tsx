@@ -149,21 +149,21 @@ export default function KonsungRus() {
       </nav>
 
       {/* Hero - strong gradient background + gmate-style layout */}
-      <section className="bg-gradient-hero text-white pt-16 pb-20">
-        <div className="max-w-7xl mx-auto px-8 grid md:grid-cols-2 gap-12 items-center">
+      <section className="bg-gradient-hero text-white pt-14 pb-16 sm:pt-16 sm:pb-20">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 md:px-8 grid md:grid-cols-2 gap-8 md:gap-12 items-center">
           <div>
-            <h1 className="text-5xl md:text-[56px] font-semibold tracking-tighter leading-[1.05] mb-6">
+            <h1 className="text-[34px] leading-[1.05] sm:text-5xl md:text-[56px] font-semibold tracking-tighter mb-5 sm:mb-6">
               <span className="flowing-gradient block">{siteTexts.hero.titleLine1}</span>
               <span className="flowing-gradient block">{siteTexts.hero.titleLine2}</span>
-              <span className="flowing-gradient block mt-1 md:mt-1.5">{siteTexts.hero.titleLine3}</span>
+              <span className="flowing-gradient block mt-0.5 sm:mt-1 md:mt-1.5">{siteTexts.hero.titleLine3}</span>
             </h1>
-            <p className="text-xl text-white/90 mb-8 max-w-md">
+            <p className="text-[15px] sm:text-lg md:text-xl text-white/90 mb-6 sm:mb-8 max-w-md">
               {siteTexts.hero.subtitle}
             </p>
-            <a href="#system" className="btn-gradient inline-flex items-center gap-3 px-8 py-4 rounded-2xl font-semibold text-lg">
-              {siteTexts.hero.cta} <ArrowRight size={20} />
+            <a href="#system" className="btn-gradient inline-flex items-center gap-3 px-6 sm:px-8 py-3 sm:py-4 rounded-2xl font-semibold text-base sm:text-lg">
+              {siteTexts.hero.cta} <ArrowRight size={18} className="sm:w-5 sm:h-5" />
             </a>
-            <p className="mt-4 text-xs text-white/70">{siteTexts.hero.disclaimer}</p>
+            <p className="mt-3 sm:mt-4 text-[10px] sm:text-xs text-white/70">{siteTexts.hero.disclaimer}</p>
           </div>
           <div className="relative">
             <Image 
@@ -189,10 +189,10 @@ export default function KonsungRus() {
       </section>
 
       {/* Система + Комплектация - the most important block like in gmate */}
-      <section id="system" className="max-w-7xl mx-auto px-8 py-16 bg-gradient-light-soft border-t">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-center mb-8">{siteTexts.systems.title}</h2>
-          <p className="mt-3 text-lg text-slate-600">{siteTexts.systems.subtitle}</p>
+      <section id="system" className="max-w-7xl mx-auto px-5 sm:px-6 md:px-8 py-12 sm:py-16 bg-gradient-light-soft border-t">
+        <div className="text-center mb-8 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-center mb-4 sm:mb-8">{siteTexts.systems.title}</h2>
+          <p className="mt-2 sm:mt-3 text-[15px] sm:text-lg text-slate-600">{siteTexts.systems.subtitle}</p>
         </div>
 
         <h3 className="text-2xl font-semibold tracking-tight text-center mb-8">Модели глюкометров</h3>
@@ -215,16 +215,16 @@ export default function KonsungRus() {
                     </div>
                   )}
                 </div>
-                <div className="p-8">
-                  <div className="font-semibold text-3xl tracking-tight mb-2">{product.name}</div>
+                <div className="p-6 sm:p-8">
+                  <div className="font-semibold text-2xl sm:text-3xl tracking-tight mb-1.5 sm:mb-2">{product.name}</div>
                   {product.model && (
-                    <div className="text-[#013CC6] font-medium mb-4">{product.model}</div>
+                    <div className="text-[#013CC6] font-medium mb-3 sm:mb-4 text-sm sm:text-base">{product.model}</div>
                   )}
-                  <div className="text-slate-600 mb-6 leading-relaxed">
+                  <div className="text-slate-600 mb-4 sm:mb-6 leading-relaxed text-[14px] sm:text-[15px]">
                     {product.description}
                   </div>
                   {product.shortFeatures && product.shortFeatures.length > 0 && (
-                    <div className="text-sm text-slate-500">
+                    <div className="text-xs sm:text-sm text-slate-500">
                       {product.shortFeatures.join(" • ")}
                     </div>
                   )}
@@ -243,9 +243,9 @@ export default function KonsungRus() {
         </div>
 
         {/* Общие технические характеристики двух моделей */}
-        <div className="mt-16">
-          <h4 className="text-2xl font-semibold tracking-tight text-center mb-8">Общие технические характеристики</h4>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="mt-10 sm:mt-16">
+          <h4 className="text-xl sm:text-2xl font-semibold tracking-tight text-center mb-6 sm:mb-8">Общие технические характеристики</h4>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
             {[
               { label: "Метод измерения", value: "Электрохимический (глюкозодегидрогеназа FAD)" },
               { label: "Время измерения", value: "5 секунд" },
@@ -260,7 +260,7 @@ export default function KonsungRus() {
               { label: "Калибровка", value: "По плазме крови" },
               { label: "Питание", value: "х2 ААА" },
             ].map((spec, i) => (
-              <div key={i} className="spec-card bg-white border rounded-2xl p-6">
+              <div key={i} className="spec-card bg-white border rounded-2xl p-4 sm:p-6">
                 <div className="text-sm text-slate-500">{spec.label}</div>
                 <div className="font-semibold text-lg mt-1 leading-tight">{spec.value}</div>
               </div>
@@ -304,7 +304,7 @@ export default function KonsungRus() {
 
       {/* Тест-полоски section */}
       <section id="strips" className="bg-gradient-light-soft border-y">
-        <div className="max-w-7xl mx-auto px-8 py-16">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 md:px-8 py-12 sm:py-16">
           <div className="grid md:grid-cols-2 gap-12 items-start">
             {/* Left column: title + description + all specs */}
             <div>
@@ -357,8 +357,8 @@ export default function KonsungRus() {
 
 
       {/* О компании */}
-      <section id="company" className="bg-gradient-light-soft py-16">
-        <div className="max-w-7xl mx-auto px-8">
+      <section id="company" className="bg-gradient-light-soft py-12 sm:py-16">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 md:px-8">
           <div className="grid md:grid-cols-12 gap-x-12">
           <div className="md:col-span-5">
             <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-center mb-8">О компании</h2>
@@ -406,10 +406,10 @@ export default function KonsungRus() {
       <NewsSection />
 
       {/* Где купить */}
-      <section id="buy" className="max-w-7xl mx-auto px-8 py-16 border-b">
-        <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-center mb-8">Где купить</h2>
+      <section id="buy" className="max-w-7xl mx-auto px-5 sm:px-6 md:px-8 py-12 sm:py-16 border-b">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-center mb-6 sm:mb-8">Где купить</h2>
 
-        <div className="text-lg text-slate-600 mb-8">
+        <div className="text-[15px] sm:text-lg text-slate-600 mb-6 sm:mb-8">
           Мы работаем с аптечными сетями, дистрибьюторами и медицинскими учреждениями по всей России.
         </div>
 
@@ -452,8 +452,8 @@ export default function KonsungRus() {
       </section>
 
       {/* Для дистрибьюторов */}
-      <section id="partners" className="bg-gradient-light border-b py-16">
-        <div className="max-w-7xl mx-auto px-8">
+      <section id="partners" className="bg-gradient-light border-b py-12 sm:py-16">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 md:px-8">
           <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-center mb-8">Для дистрибьюторов</h2>
           <p className="mt-3 text-lg text-slate-600 max-w-2xl mx-auto">
@@ -463,7 +463,7 @@ export default function KonsungRus() {
         </div>
 
         {/* Преимущества */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-14">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-10 sm:mb-14">
           {[
             { Icon: Truck, title: "Прямые поставки", desc: "Эксклюзивный импорт напрямую от производителя Sejoy без посредников" },
             { Icon: ClipboardCheck, title: "Полная регистрация", desc: "Все изделия зарегистрированы в Росздравнадзоре, готовы к продаже в аптеках и участия в тендерах" },
@@ -474,7 +474,7 @@ export default function KonsungRus() {
           ].map((item, i) => {
             const IconComponent = item.Icon;
             return (
-              <div key={i} className="bg-white border rounded-3xl p-6 hover:shadow-md transition-shadow">
+              <div key={i} className="bg-white border rounded-3xl p-5 sm:p-6 hover:shadow-md transition-shadow">
                 <div className="w-14 h-14 rounded-2xl bg-[#E8F4FF] flex items-center justify-center mb-4 shadow-sm">
                   <IconComponent className="w-8 h-8 text-[#013CC6]" strokeWidth={2.25} />
                 </div>
@@ -535,7 +535,7 @@ export default function KonsungRus() {
       </section>
 
       {/* Документы */}
-      <section id="documents" className="max-w-5xl mx-auto px-8 py-16 border-b">
+      <section id="documents" className="max-w-5xl mx-auto px-5 sm:px-6 md:px-8 py-12 sm:py-16 border-b">
         <div className="text-center mb-10">
           <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-center mb-8">Документы</h2>
           <p className="mt-2 text-slate-600">Официальные инструкции по эксплуатации</p>
@@ -602,7 +602,7 @@ export default function KonsungRus() {
       {/* Contact form + footer */}
       {/* Контакты */}
       <section id="contacts" className="bg-white border-t">
-        <div className="max-w-7xl mx-auto px-8 py-16">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 md:px-8 py-12 sm:py-16">
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Левая колонка — контакты и реквизиты */}
             <div>
@@ -675,30 +675,30 @@ export default function KonsungRus() {
       {/* Contact Modal */}
       {isContactModalOpen && (
         <div 
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4"
+          className="fixed inset-0 z-[100] flex items-end sm:items-center justify-center bg-black/60 backdrop-blur-sm p-0 sm:p-4"
           onClick={() => setIsContactModalOpen(false)}
         >
           <div 
-            className="bg-white rounded-3xl shadow-2xl w-full max-w-lg overflow-hidden"
+            className="bg-white rounded-t-3xl sm:rounded-3xl shadow-2xl w-full sm:max-w-lg max-h-[92vh] sm:max-h-[88vh] overflow-hidden flex flex-col"
             onClick={e => e.stopPropagation()}
           >
             {/* Modal Header */}
-            <div className="flex items-center justify-between px-6 py-5 border-b">
-              <div>
-                <h3 className="text-2xl font-semibold tracking-tight">Связаться с нами</h3>
-                <p className="text-sm text-slate-500 mt-0.5">Оставьте заявку — мы свяжемся с вами в течение рабочего дня</p>
+            <div className="flex items-start justify-between px-5 sm:px-6 py-4 sm:py-5 border-b flex-shrink-0">
+              <div className="pr-4">
+                <h3 className="text-xl sm:text-2xl font-semibold tracking-tight">Связаться с нами</h3>
+                <p className="text-xs sm:text-sm text-slate-500 mt-1">Оставьте заявку — мы свяжемся с вами в течение рабочего дня</p>
               </div>
               <button 
                 onClick={() => setIsContactModalOpen(false)}
-                className="text-slate-400 hover:text-slate-600 transition-colors p-1"
+                className="text-slate-400 hover:text-slate-700 transition-colors p-2 -mr-2 -mt-1 text-2xl leading-none flex-shrink-0"
                 aria-label="Закрыть"
               >
                 ✕
               </button>
             </div>
 
-            {/* Form */}
-            <form onSubmit={handleSubmit} className="p-6 space-y-5">
+            {/* Form - scrollable on mobile */}
+            <form onSubmit={handleSubmit} className="p-5 sm:p-6 space-y-4 sm:space-y-5 overflow-y-auto flex-1">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {/* ФИО */}
                 <div>
@@ -800,12 +800,12 @@ export default function KonsungRus() {
               <button
                 type="submit"
                 disabled={!consent || isSubmitting}
-                className="w-full btn-gradient mt-2 py-4 rounded-2xl font-semibold text-base disabled:opacity-60 disabled:cursor-not-allowed transition-all"
+                className="w-full btn-gradient mt-1 sm:mt-2 py-3.5 sm:py-4 rounded-2xl font-semibold text-base disabled:opacity-60 disabled:cursor-not-allowed transition-all"
               >
                 {isSubmitting ? "Отправка..." : "Отправить заявку"}
               </button>
 
-              <p className="text-[10px] text-center text-slate-500 -mt-1">
+              <p className="text-[10px] text-center text-slate-500 -mt-1 pb-1">
                 Мы свяжемся с вами в течение 1 рабочего дня
               </p>
             </form>
@@ -823,7 +823,7 @@ export default function KonsungRus() {
             className="bg-white rounded-3xl shadow-2xl w-full max-w-md mx-4"
             onClick={e => e.stopPropagation()}
           >
-            <div className="p-8 text-center">
+            <div className="p-6 sm:p-8 text-center">
               <div className="mx-auto w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mb-5">
                 <svg xmlns="http://www.w3.org/2000/svg" className="w-9 h-9 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 10l7-7m0 0l7 7m-7-7v18" />

@@ -9,18 +9,18 @@ export default function NewsSection() {
   return (
     <>
       <section id="info" className="bg-gradient-light border-y">
-        <div className="max-w-7xl mx-auto px-8 py-16">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 md:px-8 py-12 sm:py-16">
           <div className="flex items-end justify-between mb-8">
             <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-center mb-8">Новости компании</h2>
             <a href="#info" className="text-sm font-medium text-[var(--primary)]">Смотреть все →</a>
           </div>
 
           {/* Горизонтальная лента новостей */}
-          <div className="flex gap-6 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-thin scrollbar-thumb-slate-300 -mx-2 px-2">
+          <div className="flex gap-4 sm:gap-6 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-thin scrollbar-thumb-slate-300 -mx-4 sm:-mx-2 px-4 sm:px-2">
             {newsItems.map((newsItem) => (
               <div 
                 key={newsItem.id} 
-                className="min-w-[280px] md:min-w-[320px] max-w-[340px] bg-white border rounded-3xl p-6 flex-shrink-0 snap-start hover:shadow-md transition-shadow active:scale-[0.985]"
+                className="min-w-[260px] sm:min-w-[280px] md:min-w-[320px] max-w-[340px] bg-white border rounded-3xl p-5 sm:p-6 flex-shrink-0 snap-start hover:shadow-md transition-shadow active:scale-[0.985]"
               >
                 <div className="text-xs text-slate-500 mb-2">{newsItem.date} • {newsItem.category}</div>
                 <div className="font-semibold text-lg leading-tight line-clamp-3 mb-4">{newsItem.title}</div>
