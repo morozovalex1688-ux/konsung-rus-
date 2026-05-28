@@ -249,3 +249,12 @@ input:focus, select:focus, textarea:focus {
   mask-composite: exclude;
   border-radius: inherit;
 }
+
+/* Hide scrollbar but keep functionality (for mobile nav) */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
