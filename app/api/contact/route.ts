@@ -31,7 +31,7 @@ export async function POST(request: NextRequest) {
     const emailHtml = `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #ffffff;">
         <h2 style="color: #013CC6; border-bottom: 2px solid #013CC6; padding-bottom: 10px; margin-bottom: 20px;">
-          Новая заявка с сайта Консунг Рус
+          Новая заявка на ГЛЮКОМЕТРЫ
         </h2>
         
         <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
@@ -81,7 +81,7 @@ export async function POST(request: NextRequest) {
 
     // Plain Text версия (очень важна для антиспам-фильтров)
     const emailText = `
-Новая заявка с сайта Консунг Рус
+Новая заявка на ГЛЮКОМЕТРЫ
 
 ФИО: ${name}
 Компания: ${company || 'Не указана'}
