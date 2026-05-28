@@ -148,24 +148,24 @@ export default function KonsungRus() {
         </div>
 
         {/* Mobile Quick Access Menu inside Header - always fixed */}
-        <div className="md:hidden border-t bg-white">
+        <div className="md:hidden bg-white">
           <div className="overflow-x-auto no-scrollbar px-4 py-2">
             <div className="flex gap-1.5 text-[11px] font-medium whitespace-nowrap">
-              <a href="#system" className="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200 active:bg-[#013CC6] active:text-white transition-colors text-slate-700">
+              <a href="#system" className="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200 active:bg-[#E8F4FF] active:text-[#013CC6] transition-colors text-slate-700">
                 Продукты
               </a>
-              <a href="#documents" className="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200 active:bg-[#013CC6] active:text-white transition-colors text-slate-700">
+              <a href="#documents" className="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200 active:bg-[#E8F4FF] active:text-[#013CC6] transition-colors text-slate-700">
                 Документы
               </a>
-              <a href="#partners" className="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200 active:bg-[#013CC6] active:text-white transition-colors text-slate-700">
+              <a href="#partners" className="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200 active:bg-[#E8F4FF] active:text-[#013CC6] transition-colors text-slate-700">
                 Партнёры
               </a>
-              <a href="tel:+78003331923" className="px-3 py-1 rounded-full bg-green-100 hover:bg-green-200 active:bg-green-600 active:text-white transition-colors text-green-700 font-medium">
+              <a href="tel:+78003331923" className="px-3 py-1 rounded-full bg-green-100 hover:bg-green-200 active:bg-[#D1FAE5] active:text-green-700 transition-colors text-green-700 font-medium">
                 Позвонить
               </a>
               <button 
                 onClick={openContactModal}
-                className="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200 active:bg-[#013CC6] active:text-white transition-colors text-slate-700"
+                className="px-3 py-1 rounded-full bg-slate-100 hover:bg-slate-200 active:bg-[#E8F4FF] active:text-[#013CC6] transition-colors text-slate-700"
               >
                 Написать
               </button>
