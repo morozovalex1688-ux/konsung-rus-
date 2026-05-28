@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight, Phone, Mail, Truck, ClipboardCheck, TrendingDown, PackageCheck, Megaphone, Handshake, Building2, Award, Users, ShoppingCart, Percent, CalendarClock, BookOpen, FileText, Smartphone, BarChart3, Bell, Share2 } from 'lucide-react';
+import { ArrowRight, Phone, Mail, Truck, ClipboardCheck, TrendingDown, PackageCheck, Megaphone, Handshake, Building2, Award, Users, ShoppingCart, Percent, CalendarClock, BookOpen, FileText, Smartphone, BarChart3, Bell, Share2, Package, MessageCircle } from 'lucide-react';
 import { toast } from 'sonner';
 
 // === ИМПОРТ КОНТЕНТА (редактируй файлы в папке content/) ===
@@ -148,47 +148,53 @@ export default function KonsungRus() {
         </div>
       </nav>
 
-      {/* Mobile Sticky Section Navigation - fixed at the very top on mobile */}
-      <div className="md:hidden sticky top-0 z-[60] bg-white/95 backdrop-blur-md border-b shadow-sm">
-        <div className="overflow-x-auto no-scrollbar px-4 py-2.5">
-          <div className="flex gap-2 text-sm font-medium whitespace-nowrap">
-            <a 
-              href="#system" 
-              className="px-3.5 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 active:bg-[#013CC6] active:text-white transition-colors text-slate-700"
-            >
-              Система
-            </a>
-            <a 
-              href="#strips" 
-              className="px-3.5 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 active:bg-[#013CC6] active:text-white transition-colors text-slate-700"
-            >
-              Тест-полоски
-            </a>
-            <a 
-              href="#company" 
-              className="px-3.5 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 active:bg-[#013CC6] active:text-white transition-colors text-slate-700"
-            >
-              О компании
-            </a>
-            <a 
-              href="#partners" 
-              className="px-3.5 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 active:bg-[#013CC6] active:text-white transition-colors text-slate-700"
-            >
-              Дистрибьюторы
-            </a>
-            <a 
-              href="#documents" 
-              className="px-3.5 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 active:bg-[#013CC6] active:text-white transition-colors text-slate-700"
-            >
-              Документы
-            </a>
-            <a 
-              href="#contacts" 
-              className="px-3.5 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 active:bg-[#013CC6] active:text-white transition-colors text-slate-700"
-            >
-              Контакты
-            </a>
-          </div>
+      {/* Mobile Quick Access Bottom Menu - like on konsungrus.ru */}
+      <div className="md:hidden fixed bottom-0 left-0 right-0 z-[70] bg-white border-t shadow-[0_-2px_10px_rgba(0,0,0,0.08)] safe-area-bottom">
+        <div className="grid grid-cols-5 text-center text-[10px] font-medium">
+          {/* Продукты */}
+          <a 
+            href="#system" 
+            className="flex flex-col items-center justify-center py-2.5 active:bg-slate-50 transition-colors"
+          >
+            <Package size={18} className="mb-0.5 text-[#013CC6]" />
+            <span className="text-slate-600">Продукты</span>
+          </a>
+
+          {/* Документы */}
+          <a 
+            href="#documents" 
+            className="flex flex-col items-center justify-center py-2.5 active:bg-slate-50 transition-colors"
+          >
+            <FileText size={18} className="mb-0.5 text-[#013CC6]" />
+            <span className="text-slate-600">Документы</span>
+          </a>
+
+          {/* Дистрибьюторы */}
+          <a 
+            href="#partners" 
+            className="flex flex-col items-center justify-center py-2.5 active:bg-slate-50 transition-colors"
+          >
+            <Handshake size={18} className="mb-0.5 text-[#013CC6]" />
+            <span className="text-slate-600">Партнёры</span>
+          </a>
+
+          {/* Позвонить */}
+          <a 
+            href="tel:+78003331923" 
+            className="flex flex-col items-center justify-center py-2.5 active:bg-slate-50 transition-colors"
+          >
+            <Phone size={18} className="mb-0.5 text-green-600" />
+            <span className="text-green-600 font-semibold">Позвонить</span>
+          </a>
+
+          {/* Написать */}
+          <button 
+            onClick={openContactModal}
+            className="flex flex-col items-center justify-center py-2.5 active:bg-slate-50 transition-colors"
+          >
+            <MessageCircle size={18} className="mb-0.5 text-[#013CC6]" />
+            <span className="text-slate-600">Написать</span>
+          </button>
         </div>
       </div>
 
@@ -645,7 +651,7 @@ export default function KonsungRus() {
 
       {/* Contact form + footer */}
       {/* Контакты */}
-      <section id="contacts" className="bg-white border-t">
+      <section id="contacts" className="bg-white border-t pb-20 md:pb-0">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 md:px-8 py-12 sm:py-16">
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Левая колонка — контакты и реквизиты */}
@@ -702,7 +708,7 @@ export default function KonsungRus() {
         </div>
       </section>
 
-      <footer className="border-t py-10 text-sm text-slate-500">
+      <footer className="border-t py-10 pb-24 md:pb-10 text-sm text-slate-500">
         <div className="max-w-7xl mx-auto px-8 grid md:grid-cols-2 gap-y-4">
           <div>
             © {new Date().getFullYear()} ООО «Консунг Рус». Все права защищены.<br />
