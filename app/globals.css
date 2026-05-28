@@ -1,26 +1,251 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* === New color palette inspired by https://preview--sejoy-health-hub.lovable.app/ === */
+  /* Deep professional blue */
+  --primary: #0F4C81;
+  --primary-dark: #0A3A63;
+  --primary-light: #1E6BB8;
+
+  /* Warm pink/coral accent (from packaging gradient) */
+  --accent: #E85A8C;
+  --accent-light: #F28FB0;
+  --accent-dark: #C93D6E;
+
+  /* Beautiful lighter blue-to-pink gradient (updated to be softer) */
+  --gradient: linear-gradient(135deg, #4A90E2 0%, #F8A5C2 100%);
+  --gradient-soft: linear-gradient(135deg, #5BA3F0 0%, #F9B8D0 100%);
+  --gradient-vibrant: linear-gradient(135deg, #4A90E2 10%, #F8A5C2 90%);
+
+  /* Even lighter versions for section backgrounds */
+  --gradient-light: linear-gradient(135deg, #7EB8F5 0%, #FBC4D4 100%);
+  --gradient-light-soft: linear-gradient(135deg, #A3C9F8 0%, #FDD6E0 100%);
+
+  /* Clean modern backgrounds */
+  --bg: #F8FAFC;
+  --bg-card: #FFFFFF;
+  --bg-muted: #F1F5F9;
+
+  /* Text */
+  --text: #0F172A;
+  --text-muted: #475569;
+
+  /* Borders & subtle */
+  --border: #E2E8F0;
+  --ring: #0F4C81;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Base */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  background-color: var(--bg);
+  color: var(--text);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* === Premium Health Hub Styling === */
+.btn-primary {
+  background: var(--primary);
+  color: white;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 15px -3px rgb(15 76 129 / 0.2);
+}
+
+.btn-accent {
+  background: var(--accent);
+  color: white;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-accent:hover {
+  background: var(--accent-dark);
+  transform: translateY(-1px);
+}
+
+/* Gradient text */
+.gradient-brand {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Cards with soft depth */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover {
+  border-color: var(--primary-light);
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.05), 0 8px 10px -6px rgb(0 0 0 / 0.05);
+  transform: translateY(-2px);
+}
+
+/* Kit items - clean product presentation */
+.kit-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+}
+
+.kit-item:hover {
+  border-color: var(--accent);
+  box-shadow: 0 10px 15px -3px rgb(232 90 140 / 0.1);
+}
+
+/* Specs */
+.spec-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  transition: all 0.2s ease;
+}
+
+.spec-card:hover {
+  border-color: var(--primary);
+}
+
+/* Section headers */
+.section-title {
+  color: var(--text);
+}
+
+.section-subtitle {
+  color: var(--text-muted);
+}
+
+/* === Dynamic flowing / iridescent gradient text (Hero UTP) === */
+.flowing-gradient {
+  background: linear-gradient(
+    115deg,
+    #7DD3FC 0%,
+    #F472B6 22%,
+    #FCE7F3 48%,
+    #F472B6 72%,
+    #7DD3FC 100%
+  );
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: flowing-gradient 5.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  filter: brightness(1.15) saturate(1.1);
+}
+
+@keyframes flowing-gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* === Subtle pulsing / breathing effect for Hero photo === */
+.hero-pulse {
+  animation: hero-pulse 6.5s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes hero-pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.032);
+  }
+}
+
+/* Form inputs - modern and clean */
+input, select, textarea {
+  background: white;
+  border: 1px solid var(--border);
+  transition: all 0.2s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(15, 76, 129, 0.1);
+  outline: none;
+}
+
+/* Subtle gradient backgrounds for hero/accents */
+.bg-gradient-brand {
+  background: var(--gradient-soft);
+}
+
+.text-gradient {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* === More prominent gradient usage === */
+.bg-gradient-hero {
+  background: linear-gradient(135deg, #0F4C81 0%, #E85A8C 100%);
+}
+
+.bg-gradient-section {
+  background: linear-gradient(135deg, #0F4C81 5%, #E85A8C 95%);
+}
+
+.btn-gradient {
+  background: var(--gradient-vibrant);
+  color: white;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
+}
+
+.btn-gradient:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px -5px rgba(232, 90, 140, 0.4);
+}
+
+/* Light gradient background utilities */
+.bg-gradient-light {
+  background: var(--gradient-light);
+}
+
+.bg-gradient-light-soft {
+  background: var(--gradient-light-soft);
+}
+
+/* Gradient overlay for sections */
+.section-gradient-light {
+  background: linear-gradient(180deg, #ffffff 0%, #f0f5ff 100%);
+  position: relative;
+}
+
+.section-gradient-light::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-light-soft);
+  opacity: 0.08;
+  pointer-events: none;
+}
+
+/* Gradient accents on cards and elements */
+.gradient-border {
+  position: relative;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  background: var(--gradient);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  border-radius: inherit;
 }
