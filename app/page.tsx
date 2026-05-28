@@ -827,7 +827,7 @@ export default function KonsungRus() {
               {/* Submit */}
               <button
                 type="submit"
-                disabled={!consent || isSubmitting}
+                disabled={isSubmitting}
                 className="w-full btn-gradient mt-1 sm:mt-2 py-3.5 sm:py-4 rounded-2xl font-semibold text-base disabled:opacity-60 disabled:cursor-not-allowed transition-all"
               >
                 {isSubmitting ? "Отправка..." : "Отправить заявку"}
