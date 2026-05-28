@@ -103,9 +103,10 @@ ${message ? `\nСообщение:\n${message}\n` : ''}
     const TO_EMAIL = process.env.CONTACT_EMAIL || 'info@konsungrus.ru';
 
     // Отправитель письма (From)
-    // Рекомендуется использовать подтверждённый домен после настройки в Resend.
-    // Пример: 'Сайт Консунг Рус <info@konsungrus.ru>'
-    const FROM_EMAIL = process.env.FROM_EMAIL || 'Сайт Консунг Рус <info@konsungrus.ru>';
+    // По умолчанию используется безопасный адрес Resend.
+    // После подтверждения домена konsungrus.ru в Resend можно переопределить через переменную окружения:
+    // FROM_EMAIL="Сайт Консунг Рус <info@konsungrus.ru>"
+    const FROM_EMAIL = process.env.FROM_EMAIL || 'Сайт Консунг Рус <onboarding@resend.dev>';
 
     // Отправляем через Resend
     const resendResponse = await fetch('https://api.resend.com/emails', {

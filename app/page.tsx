@@ -753,7 +753,7 @@ export default function KonsungRus() {
                     value={formData.company}
                     onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                     className="w-full border border-slate-300 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:border-[#013CC6] transition-colors"
-                    placeholder="ООО «Аптека Здоровья»"
+                    placeholder="Название вашей компании"
                     required
                   />
                 </div>
@@ -770,7 +770,7 @@ export default function KonsungRus() {
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     className="w-full border border-slate-300 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:border-[#013CC6] transition-colors"
-                    placeholder="+7 (999) 123-45-67"
+                    placeholder="+7 (___) ___-__-__"
                     required
                   />
                 </div>
@@ -785,7 +785,7 @@ export default function KonsungRus() {
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     className="w-full border border-slate-300 rounded-2xl px-4 py-3 text-sm focus:outline-none focus:border-[#013CC6] transition-colors"
-                    placeholder="info@company.ru"
+                    placeholder="ваш@email.ru"
                     required
                   />
                 </div>
