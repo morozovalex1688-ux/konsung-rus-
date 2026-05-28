@@ -30,7 +30,7 @@ export async function POST(request: NextRequest) {
 
     const emailHtml = `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #ffffff;">
-        <h2 style="color: #013CC6; border-bottom: 2px solid #013CC6; padding-bottom: 10px; margin-bottom: 20px;">
+        <h2 style="color: #16A34A; font-size: 26px; font-weight: 600; border-bottom: 2px solid #16A34A; padding-bottom: 10px; margin-bottom: 20px;">
           Новая заявка на ГЛЮКОМЕТРЫ
         </h2>
         
