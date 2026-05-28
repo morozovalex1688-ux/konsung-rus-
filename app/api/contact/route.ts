@@ -1,14 +1,46 @@
 import { NextRequest, NextResponse } from 'next/server';
 
+function escapeHtml(unsafe: string): string {
+  return unsafe
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { name, company, phone, email, message } = body;
+
+    // Trim all inputs
+    const name = (body.name || '').trim();
+    const company = (body.company || '').trim();
+    const phone = (body.phone || '').trim();
+    const email = (body.email || '').trim();
+    const message = (body.message || '').trim();
 
     // Basic validation
     if (!name || !phone || !email) {
       return NextResponse.json(
         { error: 'Обязательные поля не заполнены' },
+        { status: 400 }
+      );
+    }
+
+    // Basic email format validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return NextResponse.json(
+        { error: 'Некорректный формат email' },
+        { status: 400 }
+      );
+    }
+
+    // Length limits
+    if (name.length > 100 || company.length > 150 || phone.length > 30 || email.length > 100 || message.length > 2000) {
+      return NextResponse.json(
+        { error: 'Одно или несколько полей слишком длинные' },
         { status: 400 }
       );
     }
@@ -26,6 +58,13 @@ export async function POST(request: NextRequest) {
     // === Формируем письмо (HTML + Plain Text) ===
     // Отправка обоих версий сильно повышает доставляемость и снижает попадание в спам
 
+    // Экранируем пользовательский ввод для безопасности (защита от XSS в письме)
+    const safeName = escapeHtml(name);
+    const safeCompany = company ? escapeHtml(company) : 'Не указана';
+    const safePhone = escapeHtml(phone);
+    const safeEmail = escapeHtml(email);
+    const safeMessage = message ? escapeHtml(message) : '';
+
     const emailSubject = `Новая заявка от ${name} (${company || 'без компании'})`;
 
     const emailHtml = `
@@ -37,22 +76,22 @@ export async function POST(request: NextRequest) {
         <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
           <tr>
             <td style="padding: 8px 0; font-weight: bold; width: 180px; color: #333;">ФИО:</td>
-            <td style="padding: 8px 0; color: #333;">${name}</td>
+            <td style="padding: 8px 0; color: #333;">${safeName}</td>
           </tr>
           <tr>
             <td style="padding: 8px 0; font-weight: bold; color: #333;">Компания:</td>
-            <td style="padding: 8px 0; color: #333;">${company || 'Не указана'}</td>
+            <td style="padding: 8px 0; color: #333;">${safeCompany}</td>
           </tr>
           <tr>
             <td style="padding: 8px 0; font-weight: bold; color: #333;">Телефон:</td>
             <td style="padding: 8px 0;">
-              <a href="tel:${phone}" style="color: #013CC6; text-decoration: none;">${phone}</a>
+              <a href="tel:${phone}" style="color: #013CC6; text-decoration: none;">${safePhone}</a>
             </td>
           </tr>
           <tr>
             <td style="padding: 8px 0; font-weight: bold; color: #333;">Email:</td>
             <td style="padding: 8px 0;">
-              <a href="mailto:${email}" style="color: #013CC6; text-decoration: none;">${email}</a>
+              <a href="mailto:${email}" style="color: #013CC6; text-decoration: none;">${safeEmail}</a>
             </td>
           </tr>
         </table>
@@ -61,7 +100,7 @@ export async function POST(request: NextRequest) {
           <div style="margin-bottom: 25px;">
             <strong style="color: #333;">Сообщение:</strong>
             <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-top: 8px; white-space: pre-wrap; color: #333; border: 1px solid #eee;">
-              ${message}
+              ${safeMessage}
             </div>
           </div>
         ` : ''}
@@ -148,11 +187,11 @@ ${message ? `\nСообщение:\n${message}\n` : ''}
   } catch (error: any) {
     console.error('Contact form error:', error);
 
-    let userError = 'Не удалось отправить заявку. Попробуйте позже.';
-
-    if (error?.message) {
-      userError = error.message;
-    }
+    // В production не отдаём технические детали клиенту
+    const isProduction = process.env.NODE_ENV === 'production';
+    const userError = isProduction 
+      ? 'Не удалось отправить заявку. Попробуйте позже.' 
+      : (error?.message || 'Не удалось отправить заявку.');
 
     return NextResponse.json(
       { error: userError },
