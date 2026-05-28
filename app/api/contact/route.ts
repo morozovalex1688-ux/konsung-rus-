@@ -127,15 +127,35 @@ ${message ? `\nСообщение:\n${message}\n` : ''}
 
     if (!resendResponse.ok) {
       const errorData = await resendResponse.json();
-      console.error('Resend error:', errorData);
-      throw new Error('Ошибка отправки письма');
+      console.error('Resend API error:', JSON.stringify(errorData, null, 2));
+
+      // Более понятная ошибка для пользователя
+      let userMessage = 'Не удалось отправить заявку. Попробуйте позже.';
+
+      if (errorData?.message?.includes('verify')) {
+        userMessage = 'Ошибка отправки: домен не подтверждён в Resend. Свяжитесь с администратором.';
+      } else if (errorData?.message) {
+        userMessage = `Ошибка отправки: ${errorData.message}`;
+      }
+
+      return NextResponse.json(
+        { error: userMessage },
+        { status: 500 }
+      );
     }
 
     return NextResponse.json({ success: true });
-  } catch (error) {
+  } catch (error: any) {
     console.error('Contact form error:', error);
+
+    let userError = 'Не удалось отправить заявку. Попробуйте позже.';
+
+    if (error?.message) {
+      userError = error.message;
+    }
+
     return NextResponse.json(
-      { error: 'Не удалось отправить заявку. Попробуйте позже.' },
+      { error: userError },
       { status: 500 }
     );
   }
