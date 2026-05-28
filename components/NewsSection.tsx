@@ -10,9 +10,11 @@ export default function NewsSection() {
     <>
       <section id="info" className="bg-gradient-light border-y">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 md:px-8 py-12 sm:py-16">
-          <div className="flex items-end justify-between mb-8">
-            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-center mb-8">Новости компании</h2>
-            <a href="#info" className="text-sm font-medium text-[var(--primary)]">Смотреть все →</a>
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-2 mb-6 sm:mb-8">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight">Новости компании</h2>
+            <a href="/news" className="text-sm font-medium text-[var(--primary)] hover:underline self-start sm:self-auto">
+              Смотреть все →
+            </a>
           </div>
 
           {/* Горизонтальная лента новостей */}
