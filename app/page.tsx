@@ -285,7 +285,7 @@ export default function KonsungRus() {
               { label: "Гематокрит", value: "0 – 70%" },
               { label: "Цветовой индикатор", value: "Есть" },
               { label: "Маркер еды", value: "Есть" },
-              { label: "Калибровка", value: "По плазме крови" },
+              { label: "Калибровка", value: "В плазменном эквиваленте" },
               { label: "Питание", value: "х2 ААА" },
             ].map((spec, i) => (
               <div key={i} className="spec-card bg-white border rounded-2xl p-4 sm:p-6">
