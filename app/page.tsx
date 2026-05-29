@@ -410,7 +410,7 @@ export default function KonsungRus() {
             {[
               { Icon: Building2, text: "Работаем только с юридическими лицами" },
               { Icon: Truck, text: "Доставка по всей России" },
-              { Icon: Award, text: "Более 170 исполненных госконтрактов" },
+              { Icon: Award, text: "Более 260 исполненных госконтрактов" },
               { Icon: Users, text: "Клиенты: Сбер, Газпром, Московская биржа" },
             ].map((item, i) => {
               const IconComponent = item.Icon;
